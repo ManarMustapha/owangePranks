@@ -143,13 +143,9 @@ class MainActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<Cursor> 
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 10) {
-            // If request is cancelled, the result arrays are empty.
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // permission was granted, yay! Do the
-                // contacts-related task you need to do.
+                LoaderManager.getInstance(this).initLoader(CONTACTS_LOADER_ID, null, this)
             } else {
-                // permission denied, boo! Disable the
-                // functionality that depends on this permission.
                 Toast.makeText(
                     this,
                     "Permission denied to read your contacts",
