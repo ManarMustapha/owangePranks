@@ -1,10 +1,10 @@
 package com.example.owangeprankstask.core.data.local
 
+import androidx.lifecycle.LiveData
 import com.example.owangeprankstask.core.data.local.entities.ContactEntity
-import io.reactivex.Observable
 
 interface MainLocalDataSrc {
-    fun getContacts(): Observable<List<ContactEntity>>
-    fun insertContacts(contactEntities: List<ContactEntity>)
+    suspend fun insertContacts(contactEntities: List<ContactEntity>)
+    fun getContacts(): LiveData<List<ContactEntity>>
     fun deleteContacts()
 }

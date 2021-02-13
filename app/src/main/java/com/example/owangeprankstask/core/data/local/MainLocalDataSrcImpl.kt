@@ -4,7 +4,7 @@ import com.example.owangeprankstask.core.data.local.entities.ContactEntity
 
 class MainLocalDataSrcImpl(private val appDatabase: AppDatabase) : MainLocalDataSrc {
 
-    override fun insertContacts(contactEntities: List<ContactEntity>) =
+    override suspend fun insertContacts(contactEntities: List<ContactEntity>) =
         appDatabase.getContactDao().insertContacts(contactEntities)
 
     override fun deleteContacts() = appDatabase.getContactDao().deleteContacts()
